@@ -11,11 +11,16 @@ let package = Package(
             name: "PaymentHistoryModule",
             targets: ["PaymentHistoryModule"]),
     ],
+    dependencies: [
+        .package(path: "/TransactionCore"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "PaymentHistoryModule"),
+            name: "PaymentHistoryModule",
+            dependencies: ["TransactionCore"]
+        ),
         .testTarget(
             name: "PaymentHistoryModuleTests",
             dependencies: ["PaymentHistoryModule"]),
